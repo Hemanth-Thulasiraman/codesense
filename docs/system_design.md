@@ -23,3 +23,16 @@ The Output Layer is responsible for turning approved agent decisions into concre
 6. Observability Layer
 
 The Observability Layer provides monitoring, tracing, and debugging support across the full CodeSense workflow. Using LangSmith, the system records agent execution paths, tool calls, intermediate reasoning steps, and final outputs so developers can inspect how decisions were made and identify failures or inefficiencies. This layer connects across every other part of the system, from webhook ingestion to final output delivery, offering end-to-end visibility into runtime behavior. It is critical for evaluation, iteration, and maintaining trust in an agentic code review platform.
+
+| Component          | Decision        | Why                                                                                                             |
+| ------------------ | --------------- | --------------------------------------------------------------------------------------------------------------- |
+| Agent framework    | LangGraph       | Provides structured multi-step agent workflows and matches the orchestration approach already used in FinSight. |
+| Orchestration      | ReAct loop      | Lets the agent decide tool order dynamically instead of relying on a rigid fixed pipeline.                      |
+| LLM                | GPT-4o          | Reuses the same strong general-purpose reasoning model used successfully in FinSight.                           |
+| Webhook receiver   | FastAPI         | Offers a lightweight and reliable way to receive GitHub webhook POST requests.                                  |
+| GitHub integration | PyGithub        | Simplifies interaction with the GitHub REST API from Python for repository and pull request data access.        |
+| Static analysis    | flake8 + bandit | Combines style checking and security scanning to give broader code review coverage.                             |
+| HITL notification  | Slack API       | Enables fast human approval or rejection directly in an existing team communication channel.                    |
+| State storage      | PostgreSQL      | Persists pending review states reliably while the system waits for human decisions.                             |
+| Monitoring         | LangSmith       | Provides tracing and observability for agent runs, tool usage, and debugging.                                   |
+| Deployment         | Railway         | Keeps deployment simple and consistent with the infrastructure used for FinSight.                               |
