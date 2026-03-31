@@ -6,7 +6,7 @@ Software engineers at companies of all sizes spend 3-4 hours per week on manual 
 
 Reason 1 — Dynamic control flow:
 
-"When CodeSense analyzes a PR diff and discovers a function being modified that is called in 12 other files, it must decide to fetch those dependent files and check for breaking changes. A pipeline cannot do this because it will just analyse that one change and post review . In code review this matters because a breaking change in a widely-used function can cause production failures that would have been caught if the reviewer had checked all dependent call sites.”
+"When CodeSense analyzes a PR diff and discovers a function being modified that is called in 12 other files, it must decide to fetch those dependent files and check for breaking changes. A pipeline cannot do this because its execution path is hardcoded at write time and cannot fetch dependent files mid-run . In code review this matters because a breaking change in a widely-used function can cause production failures that would have been caught if the reviewer had checked all dependent call sites.”
 
 Reason 2 — Intelligent error handling:
 
@@ -14,7 +14,7 @@ Reason 2 — Intelligent error handling:
 
 Reason 3 — Variable task depth:
 
-"A 10-line PR fixing a typo requires 1 tool call. A 500-line PR refactoring a core authentication module requires 10+ because more files, more dependencies, more security checks. A pipeline cannot handle this because it doesnt have the ability to analyse dependencies . This matters because over-reviewing simple PRs wastes cost, under-reviewing complex ones misses bugs."
+"A 10-line PR fixing a typo requires 1 tool call. A 500-line PR refactoring a core authentication module requires 10+ because more files, more dependencies, more security checks. A pipeline cannot handle this because it runs a fixed number of steps regardless of PR complexity — it either over-reviews simple PRs wasting cost, or under-reviews complex ones missing critical bugs."
 
 **3\. Tool Registry — CodeSense needs these five tools:**
 
