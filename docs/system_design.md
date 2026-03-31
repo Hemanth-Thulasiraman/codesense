@@ -26,7 +26,7 @@ The Output Layer is responsible for turning approved agent decisions into concre
 
 The Observability Layer provides monitoring, tracing, and debugging support across the full CodeSense workflow. Using LangSmith, the system records agent execution paths, tool calls, intermediate reasoning steps, and final outputs so developers can inspect how decisions were made and identify failures or inefficiencies. This layer connects across every other part of the system, from webhook ingestion to final output delivery, offering end-to-end visibility into runtime behavior. It is critical for evaluation, iteration, and maintaining trust in an agentic code review platform.
 
-CodeSense SYSTEM DESIGN
+Stack Decisions
 
 | Component          | Decision        | Why                                                                                                             |
 | ------------------ | --------------- | --------------------------------------------------------------------------------------------------------------- |
