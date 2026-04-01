@@ -53,8 +53,3 @@ def fetch_pr_diff(repo_name: str, pr_number: int) -> dict:
 
     except Exception as e:
         return {"error": True, "message": f"Failed to fetch PR diff: {str(e)}"}
-
-
-if __name__ == "__main__":
-    result = fetch_pr_diff("Hemanth-Thulasiraman/FinSight", 1)
-    print(result)       
