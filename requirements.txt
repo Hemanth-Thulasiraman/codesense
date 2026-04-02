@@ -1,2 +1,7 @@
 psycopg2-binary
 python-dotenv
+PyGithub
+openai
+flake8
+bandit
+slack-sdk
