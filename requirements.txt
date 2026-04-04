@@ -5,3 +5,5 @@ openai
 flake8
 bandit
 slack-sdk
+uvicorn
+fastapi
