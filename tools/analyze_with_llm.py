@@ -1,12 +1,18 @@
+from langsmith.wrappers import wrap_openai
+from langsmith import traceable
 import os
 from openai import OpenAI
 from dotenv import load_dotenv
 
+client = wrap_openai(OpenAI())
+
 load_dotenv()
 
-client = OpenAI()
+client = wrap_openai(OpenAI())
+
 MAX_DIFF_CHARS = 20000
 
+@traceable
 def analyze_with_llm(
     pr_diff: dict,
     violations: dict,
