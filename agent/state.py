@@ -16,3 +16,5 @@ class AgentState(TypedDict):
   tools_called: List[str]
   next_action: Optional[str]
   requires_hitl: Optional[bool]
+  thread_id: str
+
